@@ -6,20 +6,25 @@
 /*   By: dodordev <dodordev@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 11:53:20 by dodordev          #+#    #+#             */
-/*   Updated: 2023/11/15 13:08:06 by dodordev         ###   ########.fr       */
+/*   Updated: 2023/11/17 15:42:36 by dodordev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*memchr(const void *s, int c, unsigned int n)
+void	*memchr(const void *s, int c, size_t n)
 {
-	char		*str;
-	unsigned int	i;
+	unsigned char	*position;
+	unsigned char	uc;
 
-	i = 0;
-	str = (char *)s;
+	position = (unsigned char *)s;
+	uc = (unsigned char)uc;
 
-	while (i < n)
+	while (n--)
 	{
-		if ((unsigned char)str[i] == 
+		if (*position == uc)
+			return ((void *)position);
+		p++;
+	}
+	return (0);
+}
