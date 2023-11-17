@@ -3,28 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dodordev <dodordev@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: ddordevi <ddordevi@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:03:07 by dodordev          #+#    #+#             */
-/*   Updated: 2023/11/17 12:00:56 by dodordev         ###   ########.fr       */
+/*   Updated: 2023/11/17 17:15:22 by ddordevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "libft.h"
-
-#include <stdio.h>
-#include <string.h>
-#include <unistd.h>
-
-int	ft_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
@@ -54,7 +40,7 @@ char	*ft_strrchar_v2(const char *s, int c)
 	}
 	return (NULL);
 }
-*/
+
 int main()
 {
 	const char *test_string = "Hello, world!";
@@ -70,5 +56,6 @@ int main()
 
 	return (0);
 }
+*/
 
 

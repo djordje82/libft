@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dodordev <dodordev@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: ddordevi <ddordevi@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:29:37 by dodordev          #+#    #+#             */
-/*   Updated: 2023/11/17 17:09:44 by dodordev         ###   ########.fr       */
+/*   Updated: 2023/11/17 17:12:03 by ddordevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,3 +36,5 @@ char	*ft_strrchar(const char *s, int c);
 int     ft_strncmp(const char *s1, const char *s2, size_t n);
 void    *memchr(const void *s, int c, size_t n);
 int     ft_atoi(const char *str);
+
+#endif

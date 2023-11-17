@@ -6,11 +6,11 @@
 /*   By: ddordevi <ddordevi@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:39:14 by dodordev          #+#    #+#             */
-/*   Updated: 2023/11/17 15:18:20 by ddordevi         ###   ########.fr       */
+/*   Updated: 2023/11/17 17:14:19 by ddordevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
+#include "libft.h"
 
 int	ft_isdigit(int n)
 {

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dodordev <dodordev@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: ddordevi <ddordevi@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 11:53:20 by dodordev          #+#    #+#             */
-/*   Updated: 2023/11/17 15:42:36 by dodordev         ###   ########.fr       */
+/*   Updated: 2023/11/17 17:13:05 by ddordevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*memchr(const void *s, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char	*position;
 	unsigned char	uc;
@@ -24,7 +24,7 @@ void	*memchr(const void *s, int c, size_t n)
 	{
 		if (*position == uc)
 			return ((void *)position);
-		p++;
+		position++;
 	}
 	return (0);
 }
