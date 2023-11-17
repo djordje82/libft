@@ -6,13 +6,13 @@
 /*   By: ddordevi <ddordevi@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 10:00:46 by dodordev          #+#    #+#             */
-/*   Updated: 2023/11/17 15:06:59 by ddordevi         ###   ########.fr       */
+/*   Updated: 2023/11/17 17:09:33 by dodordev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include "libft.h"
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int	nb;
 	int	sign;
