@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dodordev <dodordev@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: ddordevi <ddordevi@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 13:46:55 by dodordev          #+#    #+#             */
-/*   Updated: 2023/11/15 13:04:58 by dodordev         ###   ########.fr       */
+/*   Updated: 2023/11/20 10:11:16 by ddordevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ char	*ft_strchr(const char *s, int c)
 		s++;
 	if (c == *s)
 		return ((char *)s);
-	return (NULL);
+	return (0);
 }
