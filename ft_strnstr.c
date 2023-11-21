@@ -6,7 +6,7 @@
 /*   By: dodordev <dodordev@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 13:44:16 by dodordev          #+#    #+#             */
-/*   Updated: 2023/11/21 15:55:36 by dodordev         ###   ########.fr       */
+/*   Updated: 2023/11/21 16:36:05 by dodordev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	h = 0;
 	n = 0;
 	if (needle[0] == '\0')
-		return ((char*)haystack);
+		return ((char *)haystack);
 	while (h < len && haystack[h])
 	{
 		while (h < len && needle[n] && haystack[h] && needle[n] == haystack[h])
