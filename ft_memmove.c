@@ -6,7 +6,7 @@
 /*   By: ddordevi <ddordevi@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 08:59:08 by dodordev          #+#    #+#             */
-/*   Updated: 2023/11/21 11:39:43 by dodordev         ###   ########.fr       */
+/*   Updated: 2023/11/22 12:28:09 by dodordev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	char	*tmp;
+	unsigned char	*d;
+	unsigned char	*s;
 
-	tmp = (char *)malloc(sizeof(char) * n);
-	if (tmp == NULL)
-		return (0);
-	ft_memcpy(tmp, src, n);
-	ft_memcpy(dst, tmp, n);
-	free(tmp);
-	return (dst);
+	d = (unsigned char *)dst;
+	s = (unsigned char *)src;
+	if (d == 0 && s == 0)
+		return (NULL);
+	if (dst == src || n == 0)
+		return (dst);
+	return (0);
 }
