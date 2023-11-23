@@ -6,7 +6,7 @@
 /*   By: ddordevi <ddordevi@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:03:07 by dodordev          #+#    #+#             */
-/*   Updated: 2023/11/22 23:55:55 by ddordevi         ###   ########.fr       */
+/*   Updated: 2023/11/23 09:03:42 by ddordevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	unsigned int i;
-	unsigned char uc;
+	unsigned int	i;
+	unsigned char	uc;
 
 	uc = (unsigned char)c;
 	i = ft_strlen(s);

@@ -6,7 +6,7 @@
 /*   By: ddordevi <ddordevi@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 08:59:08 by dodordev          #+#    #+#             */
-/*   Updated: 2023/11/22 23:56:39 by ddordevi         ###   ########.fr       */
+/*   Updated: 2023/11/23 09:04:30 by ddordevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char *s;
-	char *d;
-	size_t i;
+	char	*s;
+	char	*d;
+	size_t	i;
 
 	s = (char *)src;
 	d = (char *)dst;
