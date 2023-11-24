@@ -1,39 +1,55 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dodordev <dodordev@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/24 15:05:11 by dodordev          #+#    #+#             */
+/*   Updated: 2023/11/24 15:55:41 by dodordev         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static char *ft_strcpy(char *dst, const char *src)
+static size_t	numlen(int n)
 {
-	int i;
+	size_t	len;
 
-	i = 0;
-	while (src[i] != '\0')
+	len = 0;
+	if (n <= 0)
+		len++;
+	while (n)
 	{
-		dst[i] = src[i];
-		i++;
+		n /= 10;
+		len++;
 	}
-	dst[i] = '\0';
-	return (dst);
+	return (len);
 }
 
 char	*ft_itoa(int n)
 {
-	char *str;
+	char	*a;
+	size_t	len;
+	long	nb;
 
-	if (!(str = (char *)malloc(sizeof(char) * 2)))
-		return (0);
-	if (n == -2147483648)
-		return (ft_strcpy(str, "-2147483648"));
-	if (n < 0)
+	nb = n;
+	len = numlen(n);
+	a = malloc(sizeof(char) * (len + 1));
+	if (a == 0)
+		return (NULL);
+	if (nb < 0)
 	{
-		str[0] = '-';
-		str[1] = '\0';
-		str = ft_strjoin(str, ft_itoa(-n));
+		a[0] = '-';
+		nb = -nb;
 	}
-	else if (n >= 10)
-		str = ft_strjoin(ft_itoa(n / 10), ft_itoa(n % 10));
-	else if (n < 10 && n >= 0)
+	a[len--] = '\0';
+	if (nb == 0)
+		a[0] = '0';
+	while (nb)
 	{
-		str[0] = n + '0';
-		str[1] = '\0';
+		a[len--] = nb % 10 + '0';
+		nb /= 10;
 	}
-	return (str);
+	return (a);
 }

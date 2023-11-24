@@ -1,80 +1,69 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dodordev <dodordev@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/24 15:05:46 by dodordev          #+#    #+#             */
+/*   Updated: 2023/11/24 16:00:09 by dodordev         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static int	ft_cntwrd(char const *s, char c)
+static size_t	strcounter(char const *s, char c)
 {
+	size_t	count;
 	size_t	i;
-	size_t	cntr;
 
+	count = 0;
 	i = 0;
-	cntr = 0;
 	while (s[i])
 	{
-		while (s[i] == c)
+		if (s[i] == c)
 			i++;
-		if (s[i] != '\0')
-			cntr++;
-		while (s[i] && (s[i] != c))
-			i++;
+		else
+		{
+			while (s[i] != c && s[i])
+				i++;
+			count++;
+		}
 	}
-	return (cntr);
+	return (count);
 }
 
-static char		*ft_strncpy(char *dst, const char *src, size_t n)
+static void	fillarr(char **arr, size_t str_count, char const *s, char c)
 {
-	size_t	i;
+	size_t	index;
+	size_t	len_word;
 
-	i = 0;
-	while (src[i] && i < n)
+	index = 0;
+	while (index < str_count)
 	{
-		dst[i] = src[i];
-		i++;
+		len_word = 0;
+		while (*s == c && *s)
+			s++;
+		while (s[len_word] != c && s[len_word])
+			len_word++;
+		arr[index] = ft_substr(s, 0, len_word);
+		s += len_word;
+		index++;
 	}
-	while (i < n)
-	{
-		dst[i] = '\0';
-		i++;
-	}
-	return (dst);
-}
-
-static char	*ft_strndup(char const *s, size_t n)
-{
-	char	*str;
-
-	str = (char *)malloc(sizeof(char) * n + 1);
-	if (str == 0)
-		return (0);
-	str = ft_strncpy(str, s, n);
-	str[n] = '\0';
-	return (str);
+	arr[index] = 0;
 }
 
 char	**ft_split(char const *s, char c)
 {
-	size_t i;
-	size_t j;
-	size_t k;
-	char **tab;
+	size_t	str_count;
+	char	**arr;
 
-	i = 0;
-	k = 0;
-	tab = (char **)malloc(sizeof(char *) * (ft_cntwrd(s, c)) + 1);
-	if (tab == 0)
-		return (0);
-	while (s[i])
-	{
-		while (s[i] == c)
-			i++;
-		j = i;
-		while (s[i] && s[i] != c)
-			i++;
-		if (i > j)
-		{
-			tab[k] = ft_strndup(s + j, i - j);
-			k++;
-		}
-		tab[k] = 0;
-		return (tab);
-	}
-	return (0);
+	if (!s)
+		return (NULL);
+	str_count = strcounter(s, c);
+	arr = malloc(sizeof(char *) * (str_count + 1));
+	if (!arr)
+		return (NULL);
+	fillarr(arr, str_count, s, c);
+	return (arr);
 }
