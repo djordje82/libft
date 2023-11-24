@@ -6,7 +6,7 @@
 /*   By: dodordev <dodordev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 15:05:46 by dodordev          #+#    #+#             */
-/*   Updated: 2023/11/24 16:00:09 by dodordev         ###   ########.fr       */
+/*   Updated: 2023/11/24 17:23:29 by dodordev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,16 @@ static size_t	strcounter(char const *s, char c)
 		}
 	}
 	return (count);
+}
+
+static void	freearr(size_t i, char **arr)
+{
+	while (i > 0)
+	{
+		i--;
+		free(*(arr + 1));
+	}
+	free(arr);
 }
 
 static void	fillarr(char **arr, size_t str_count, char const *s, char c)
@@ -59,11 +69,14 @@ char	**ft_split(char const *s, char c)
 	char	**arr;
 
 	if (!s)
-		return (NULL);
+		return (0);
 	str_count = strcounter(s, c);
-	arr = malloc(sizeof(char *) * (str_count + 1));
+	arr = (char **)malloc(sizeof(char *) * (str_count + 1));
 	if (!arr)
-		return (NULL);
+	{
+		freearr(str_count, arr);
+		return (0);
+	}
 	fillarr(arr, str_count, s, c);
 	return (arr);
 }
