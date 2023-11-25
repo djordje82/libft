@@ -6,7 +6,7 @@
 /*   By: dodordev <dodordev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:29:37 by dodordev          #+#    #+#             */
-/*   Updated: 2023/11/25 01:56:26 by dodordev         ###   ########.fr       */
+/*   Updated: 2023/11/25 02:12:43 by dodordev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-//void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 //void	ft_putchar_fd(char c, int fd);
 //void	ft_putstr_fd(char *s, int fd);
 //void	ft_putendl_fd(char *s, int fd);
