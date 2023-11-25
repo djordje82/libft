@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dodordev <dodordev@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: ddordevi <ddordevi@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 15:05:46 by dodordev          #+#    #+#             */
-/*   Updated: 2023/11/24 17:23:29 by dodordev         ###   ########.fr       */
+/*   Updated: 2023/11/25 01:43:10 by ddordevi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ static void	freearr(size_t i, char **arr)
 	while (i > 0)
 	{
 		i--;
-		free(*(arr + 1));
+		free(arr[i]);
 	}
 	free(arr);
 }
 
-static void	fillarr(char **arr, size_t str_count, char const *s, char c)
+static int	fillarr(char **arr, size_t str_count, char const *s, char c)
 {
 	size_t	index;
 	size_t	len_word;
@@ -57,10 +57,16 @@ static void	fillarr(char **arr, size_t str_count, char const *s, char c)
 		while (s[len_word] != c && s[len_word])
 			len_word++;
 		arr[index] = ft_substr(s, 0, len_word);
+		if (!arr[index])
+		{
+			freearr(index, arr);
+			return (0);
+		}
 		s += len_word;
 		index++;
 	}
-	arr[index] = 0;
+	arr[index] = NULL;
+	return (1);
 }
 
 char	**ft_split(char const *s, char c)
@@ -69,14 +75,14 @@ char	**ft_split(char const *s, char c)
 	char	**arr;
 
 	if (!s)
-		return (0);
+		return (NULL);
 	str_count = strcounter(s, c);
 	arr = (char **)malloc(sizeof(char *) * (str_count + 1));
 	if (!arr)
+		return (NULL);
+	if (!fillarr(arr, str_count, s, c))
 	{
-		freearr(str_count, arr);
-		return (0);
+		return (NULL);
 	}
-	fillarr(arr, str_count, s, c);
 	return (arr);
 }
