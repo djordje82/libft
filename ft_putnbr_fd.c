@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dodordev <dodordev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 08:59:08 by dodordev          #+#    #+#             */
-/*   Updated: 2023/11/25 02:34:26 by dodordev         ###   ########.fr       */
+/*   Created: 2023/11/25 14:28:16 by dodordev          #+#    #+#             */
+/*   Updated: 2023/11/25 14:33:38 by dodordev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_putnbr_fd(int nb, int fd)
 {
-	char	*s;
-	char	*d;
-	size_t	i;
+	unsigned int	nbr;
 
-	s = (char *)src;
-	d = (char *)dst;
-	i = 0;
-	if (!d && !s)
-		return (0);
-	if (d > s)
-		while (len-- > 0)
-			d[len] = s[len];
-	else
+	if (nb < 0)
 	{
-		while (i < len)
-		{
-			d[i] = s[i];
-			i++;
-		}
+		ft_putchar_fd('-', fd);
+		nbr = (unsigned int)(nb * -1);
 	}
-	return (dst);
+	else
+		nbr = (unsigned int)nb;
+	if (nbr >= 10)
+		ft_putnbr_fd(nbr / 10, fd);
+	ft_putchar_fd((char)(nbr % 10 + 48), fd);
 }

@@ -6,13 +6,13 @@
 /*   By: dodordev <dodordev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 15:05:46 by dodordev          #+#    #+#             */
-/*   Updated: 2023/11/25 01:50:37 by dodordev         ###   ########.fr       */
+/*   Updated: 2023/11/25 14:23:39 by dodordev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	strcounter(char const *s, char c)
+static size_t	str_counter(char const *s, char c)
 {
 	size_t	count;
 	size_t	i;
@@ -33,7 +33,7 @@ static size_t	strcounter(char const *s, char c)
 	return (count);
 }
 
-static void	freearr(size_t i, char **arr)
+static void	free_arr(size_t i, char **arr)
 {
 	while (i > 0)
 	{
@@ -43,7 +43,7 @@ static void	freearr(size_t i, char **arr)
 	free(arr);
 }
 
-static int	fillarr(char **arr, size_t str_count, char const *s, char c)
+static int	fill_arr(char **arr, size_t str_count, char const *s, char c)
 {
 	size_t	index;
 	size_t	len_word;
@@ -59,7 +59,7 @@ static int	fillarr(char **arr, size_t str_count, char const *s, char c)
 		arr[index] = ft_substr(s, 0, len_word);
 		if (!arr[index])
 		{
-			freearr(index, arr);
+			free_arr(index, arr);
 			return (0);
 		}
 		s += len_word;
@@ -76,11 +76,11 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	str_count = strcounter(s, c);
+	str_count = str_counter(s, c);
 	arr = (char **)malloc(sizeof(char *) * (str_count + 1));
 	if (!arr)
 		return (NULL);
-	if (!fillarr(arr, str_count, s, c))
+	if (!fill_arr(arr, str_count, s, c))
 	{
 		return (NULL);
 	}
