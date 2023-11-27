@@ -1,5 +1,5 @@
 NAME = libft.a
-SRCS = ft_isalpha.c \
+SRC = ft_isalpha.c \
 		ft_isdigit.c \
 		ft_isalnum.c \
 		ft_isascii.c \
@@ -33,29 +33,40 @@ SRCS = ft_isalpha.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c
+BONUS_SRC = ft_lstnew.c \
+		ft_lstadd_front.c \
+		ft_lstsize.c \
+		ft_lstlast.c \
+		ft_lstadd_back.c \
+		ft_lstdelone.c \
+		ft_lstclear.c \
+		ft_lstiter.c 
 
-BONUS SRCS = ft_lstnew.c \
-
-OBJS = ${SRCS:.c=.o}
-OBJS = ${BONUS SRCS: .c=.o}
-FLAGS = -Wall -Werror -Wextra
+OBJ = $(SRC:%.c=%.o)
+BONUS_OBJ = $(BONUS_SRC:.c=.o)
+CFLAGS = -Wall -Werror -Wextra
 CC = cc
-CCAR = ar rcs
+RM = rm -f
 
-all: ${NAME}
+all: $(NAME)
 
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) -c $(SRC)
+	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME)
+
+bonus: $(OBJ) $(BONUS_OBJ)
+		@ar rcs $(NAME) $(OBJ) $(BONUS_OBJ)
+		@ranlib $(NAME)
 %.o: %.c
-	${CC} ${FLAGS} -c $< -o $@
-
-${NAME}: ${OBJS}
-	${CCAR} ${NAME} ${OBJS}
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f ${OBJS}
+	$(RM) $(OBJ) $(BONUS_OBJ)
 
 fclean: clean
-	rm -f ${NAME}
+	$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
