@@ -34,7 +34,10 @@ SRCS = ft_isalpha.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c
 
+BONUS SRCS = ft_lstnew.c \
+
 OBJS = ${SRCS:.c=.o}
+OBJS = ${BONUS SRCS: .c=.o}
 FLAGS = -Wall -Werror -Wextra
 CC = cc
 CCAR = ar rcs
